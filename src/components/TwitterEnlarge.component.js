@@ -1,8 +1,12 @@
-export default function TwitterEnlarge() {
+export default function TwitterEnlarge({ image }) {
   return (
     <div className="twitterPostWrap">
       <div className="twitterHeadImgWrap">
-        <img src="https://randomuser.me/api/portraits/women/11.jpg" alt="" className="twitterHeadImg" />
+        <img
+          src="https://randomuser.me/api/portraits/women/11.jpg"
+          alt=""
+          className="twitterHeadImg"
+        />
       </div>
       <div className="twitterPostHeadWrap">
         <div className="twitterUserDetails">
@@ -25,7 +29,7 @@ export default function TwitterEnlarge() {
           <i className="fa-solid fa-ellipsis"></i>
         </span>
         <div className="twitterPostImgWrap">
-          <img src="https://images.unsplash.com/photo-1618588507085-c79565432917" alt="" className="twitterPostImg" />
+          <img src={image} alt="" className="twitterPostImg" />
         </div>
         <div className="twitterCommentWrap">
           <div className="twitterCmtTab">

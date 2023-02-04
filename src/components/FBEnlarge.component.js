@@ -1,4 +1,4 @@
-export default function FBEnlarge() {
+export default function FBEnlarge({ image }) {
   return (
     <div className="fb-cards-designs">
       <div className="fb-clone-card">
@@ -23,10 +23,7 @@ export default function FBEnlarge() {
 
           <div className="fb-card-body simple-text-card simple-image-card simple-image-post">
             <div className="images-container">
-              <img
-                src="https://images.unsplash.com/photo-1618588507085-c79565432917"
-                className="img-responsive"
-              />
+              <img src={image} className="img-responsive" />
               <div className="sponsord-post-title-links">
                 <small>medium.com/@karthikricssion</small>
                 <h5>How to design a printable HTML page layout</h5>
@@ -79,7 +76,7 @@ export default function FBEnlarge() {
               <div
                 className="comment-box"
                 placeholder="Write a comment..."
-                contenteditable="true"
+                contentEditable="true"
               ></div>
             </div>
           </div>
