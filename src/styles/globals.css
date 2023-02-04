@@ -1,4 +1,17 @@
-:root {
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #F5FBFF;
+  font-family: 'Poppins';
+}
+
+.text-gray {
+  color: rgb(164, 164, 164);
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+/* :root {
   --max-width: 1100px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
@@ -104,4 +117,4 @@ a {
   html {
     color-scheme: dark;
   }
-}
+} */
