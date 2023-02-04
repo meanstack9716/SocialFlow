@@ -27,7 +27,7 @@ export default function InstaEnlarge() {
         <h6>657483 likes</h6>
         <h4>
           Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text e
+          industry. Lorem Ipsum has been the industrys standard dummy text e
         </h4>
         <h5>see translation</h5>
       </div>

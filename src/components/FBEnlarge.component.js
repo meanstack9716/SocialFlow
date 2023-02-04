@@ -80,7 +80,6 @@ export default function FBEnlarge() {
                 className="comment-box"
                 placeholder="Write a comment..."
                 contenteditable="true"
-                placeholder="write a comment"
               ></div>
             </div>
           </div>

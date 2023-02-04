@@ -14,7 +14,7 @@ export default function PintrestEnlarge() {
           </div>
           <div className="card-footer">
             <small>
-            Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry. Lorem Ipsum Has Been The Industry's Standard Dummy Text E
+            Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry. Lorem Ipsum Has Been The Industrys Standard Dummy Text E
             </small>
           </div>
         </div>
