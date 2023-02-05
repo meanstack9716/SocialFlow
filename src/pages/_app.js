@@ -6,5 +6,6 @@ import '@/styles/twitterEnlarge.css'
 import '@/styles/skeltonLoader.css'
 
 export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  // return <Component {...pageProps} />
+  return <h1></h1>
 }
