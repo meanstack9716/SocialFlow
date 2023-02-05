@@ -27,7 +27,7 @@ export default function ActionShareIcons({ imageUrlForShare }) {
    }
   };
   return (
-    <div className={`col-12 mt-2 d-flex justify-content-between`}>
+    <div className={`col-12 mt-2 d-flex justify-content-around`}>
       <Image
         className="cursor-pointer"
         src={"/icons/like.png"}

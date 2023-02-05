@@ -18,7 +18,7 @@ body {
     margin-right: 8px;
   }
   .fb-clone-card {
-    max-width: 500px;
+    /* max-width: 500px; */
     margin: auto;
     background-color: #fff;
     border: 1px solid #dddfe2;
@@ -299,7 +299,6 @@ body {
 .postComments {
     display: flex;
     flex-direction: column;
-    color: grey;
     margin-left: 7px;
     margin-right: 7px;
 }
@@ -363,7 +362,6 @@ body {
 }
 
 .postIcons {
-    color: whitesmoke;
     margin-left: 30px;
     display: flex;
     font-size: 20px;
@@ -386,6 +384,7 @@ body {
     display: flex;
     flex-direction: column;
     text-transform: capitalize;
+    font-weight: 700;
 }
 
 .postDetails h4 {

@@ -9,6 +9,7 @@ import InstaEnlarge from "@/components/InstaEnlarge.component";
 import PintrestEnlarge from "@/components/PintrestEnlarge.component";
 import TwitterEnlarge from "@/components/TwitterEnlarge.component";
 import axios from "axios";
+import SkeltonLoaderCard from "@/components/SkeltonLoaderCard.component";
 const icons = [
   {
     name: "fa-facebook",
@@ -101,7 +102,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header></Header>
-      <div className="container">
+      <div className="container mb-2">
         <div className="row">
           <div className="col-12">
             <div className={styles.subHeaderContainer}>
@@ -119,7 +120,7 @@ export default function Home() {
                   alt="image"
                 />
                 <div
-                  className="cursor-pointer position-absolute top-0 end-0 bg-secondary"
+                  className="cursor-pointer position-absolute top-0 end-0"
                   onClick={() => {
                     setImageForView(null);
                     setImage(null);
@@ -153,15 +154,15 @@ export default function Home() {
                 />
               </div>
             )}
-            <p className="text-center mt-2 pl-4 pr-4">
-              Tell us How to do you want to re-create your product{" "}
+            <p className="text-center mt-3 pl-4 pr-4 mb-0">
+              Tell us How to do you want to re-create your product{"*"}
             </p>
             <textarea
               className={styles.textarea}
               onChange={(e) => setPrompt(e.target.value)}
               rows="3"
             ></textarea>
-            <p className="text-center mt-2 pl-4 pr-4">Texts to Exclude</p>
+            <p className="text-center mt-2 pl-4 pr-4 mb-0">Texts to Exclude</p>
             <input
               className={`${styles.textarea} mb-2`}
               onChange={(e) => setNegative_prompt(e.target.value)}
@@ -174,7 +175,7 @@ export default function Home() {
                 My dinning table in a seashore
               </li>
             </ol> */}
-            <div className="ml-1">
+            <div className="mt-2">
               <button
                 className={`${styles.generateImgBtn}`}
                 onClick={() => generateImage()}
@@ -191,7 +192,9 @@ export default function Home() {
           <div className="col-sm-12 col-md-6 mt-5 mb-3">
             <div className="row">
               <div className="col-8">
-                {!imageForEnlargeViewMode && (
+                {!imageForEnlargeViewMode && imageResponse &&
+                  imageResponse.generated_images &&
+                  imageResponse.generated_images.length && (
                   <p className="text-gray">Click on images to enlarge</p>
                 )}
                 {imageForEnlargeViewMode && (
@@ -214,11 +217,10 @@ export default function Home() {
                       onClick={() => setImageEnlargeViewOption(icon.key)}
                     >
                       <i
-                        className={`fa-brands fa-2xl ${icon.name} ${
-                          imageEnlargeViewOption === icon.key
-                            ? styles.active
-                            : ""
-                        }`}
+                        className={`fa-brands fa-2xl ${icon.name} ${imageEnlargeViewOption === icon.key
+                          ? styles.active
+                          : ""
+                          }`}
                       ></i>
                     </div>
                   ))}
@@ -227,29 +229,27 @@ export default function Home() {
             </div>
             {!imageForEnlargeViewMode ? (
               <div className="row">
+                {loading && [1, 2, 3, 4].map((i) => (
+                  <div className={`col-6 col-sm-12 col-md-6 mb-3`} key={i}>
+                    <div className={`${styles.imageHolderContainer}`}>
+                      <SkeltonLoaderCard />
+                    </div>
+                  </div>
+                ))}
                 {imageResponse &&
-                imageResponse.generated_images &&
-                imageResponse.generated_images.length
-                  ? imageResponse.generated_images.map((i) => (
-                      <div className={`col-6 col-sm-12 col-md-6 mb-3`} key={i}>
-                        <div
-                          className={`${styles.imageHolderContainer} cursor-pointer`}
-                          onClick={() => setImageForEnlargeViewMode(i)}
-                        >
-                          <img src={i} alt={i} />
-                        </div>
+                  imageResponse.generated_images &&
+                  imageResponse.generated_images.length
+                  && imageResponse.generated_images.map((i) => (
+                    <div className={`col-6 col-sm-12 col-md-6 mb-3`} key={i}>
+                      <div
+                        className={`${styles.imageHolderContainer} cursor-pointer`}
+                        onClick={() => setImageForEnlargeViewMode(i)}
+                      >
+                        <img src={i} alt={i} />
                       </div>
-                    ))
-                  : [1, 2, 3, 4].map((i) => (
-                      <div className={`col-6 col-sm-12 col-md-6 mb-3`} key={i}>
-                        <div className={`${styles.imageHolderContainer}`}>
-                          <img
-                            src="https://images.unsplash.com/photo-1618588507085-c79565432917"
-                            alt="image"
-                          />
-                        </div>
-                      </div>
-                    ))}
+                    </div>
+                  ))
+                }
               </div>
             ) : (
               <div className="row">
