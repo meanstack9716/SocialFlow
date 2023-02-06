@@ -125,6 +125,8 @@ export default function Home() {
                     setImageForView(null);
                     setImage(null);
                     setImageResponse(null);
+                    setPrompt("");
+                    setNegative_prompt("");
                   }}
                 >
                   <i className="fa-solid fa-2xl fa-circle-xmark"></i>
@@ -167,6 +169,7 @@ export default function Home() {
             </div>
             <textarea
               className={styles.textarea}
+              value={prompt}
               onChange={(e) => setPrompt(e.target.value)}
               rows="3"
             ></textarea>
@@ -174,6 +177,7 @@ export default function Home() {
               What you dont want
             </p>
             <input
+              value={negative_prompt}
               className={`${styles.textarea} mb-2`}
               onChange={(e) => setNegative_prompt(e.target.value)}
             />
@@ -201,7 +205,7 @@ export default function Home() {
           </div>
           <div className="col-sm-12 col-md-6 mt-5 mb-3">
             <div className="row">
-              <div className="col-8">
+              <div className="col-lg-6 col-md-4 col-sm-4">
                 {!imageForEnlargeViewMode &&
                   imageResponse &&
                   imageResponse.generated_images &&
@@ -218,13 +222,13 @@ export default function Home() {
                       width={24}
                       height={24}
                     ></Image>
-                    <h5 className={styles.postHeadTitle}>See as Post on:</h5>
                   </div>
                 )}
               </div>
               {imageForEnlargeViewMode && (
-                <div className="col-4 d-flex justify-content-between mb-3">
-                  <span><b>See as:</b></span>
+                <div className="col-lg-6 col-md-8 col-sm-8 d-flex justify-content-between mb-3">
+                  {/* <span><b>See as:</b></span> */}
+                  <h5 className={styles.postHeadTitle}>See as Post on:</h5>
                   {icons.map((icon) => (
                     <div
                       className="cursor-pointer ms-1"
