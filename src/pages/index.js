@@ -113,7 +113,7 @@ export default function Home() {
           </div>
           <div className="col-sm-12 col-md-6 mt-5">
             {imageForView ? (
-              <div className="position-relative rounded-5">
+              <div className="position-relative rounded-5 main-image-container">
                 <img
                   src={imageForView}
                   className="img img-responsive rounded-5"
@@ -124,6 +124,7 @@ export default function Home() {
                   onClick={() => {
                     setImageForView(null);
                     setImage(null);
+                    setImageResponse(null);
                   }}
                 >
                   <i className="fa-solid fa-2xl fa-circle-xmark"></i>
@@ -155,7 +156,7 @@ export default function Home() {
               </div>
             )}
             <div className="text-center mt-3 pl-4 pr-4 mb-0 d-flex justify-content-center">
-              <p>Describe What you want to see:</p>
+              <p>Describe the image to create</p>
               <a
                 href="#"
                 className="ms-2"
@@ -223,6 +224,7 @@ export default function Home() {
               </div>
               {imageForEnlargeViewMode && (
                 <div className="col-4 d-flex justify-content-between mb-3">
+                  <span><b>See as:</b></span>
                   {icons.map((icon) => (
                     <div
                       className="cursor-pointer ms-1"

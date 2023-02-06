@@ -29,8 +29,8 @@ export default function ActionShareIcons({ imageUrlForShare }) {
   };
   return (
     <div className={`${styles.shareIconsWrap} col-12 mt-2 d-flex justify-content-around `}>
+      <div><b>Share on:</b></div>
       <div className={`${styles.shareIconsText} d-flex flex-column`}>
-       <p>like</p>
        <Image
         className="cursor-pointer"
         src={"/icons/like.png"}
@@ -41,7 +41,6 @@ export default function ActionShareIcons({ imageUrlForShare }) {
        ></Image>
       </div>
       <div className={`${styles.shareIconsText} d-flex flex-column`}>
-       <p>Dislike</p>
        <Image
         className="cursor-pointer"
         src={"/icons/dislike.png"}
@@ -52,7 +51,6 @@ export default function ActionShareIcons({ imageUrlForShare }) {
        ></Image>
       </div>
       <div className={`${styles.shareIconsText} d-flex flex-column`}>
-        <p>Download</p>
         <a download={imageUrlForShare} href={imageUrlForShare} title="ImageName">
           <Image
            className="cursor-pointer"
@@ -64,7 +62,6 @@ export default function ActionShareIcons({ imageUrlForShare }) {
         </a>
       </div>
       <div className={`${styles.shareIconsText} d-flex flex-column`}>
-       <p>Facebook</p>
        <a
         href={`https://www.facebook.com/sharer/sharer.php?u=${imageUrlForShare}&t=TITLE`}
         onClick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
@@ -82,7 +79,6 @@ export default function ActionShareIcons({ imageUrlForShare }) {
        </a>
       </div>
       <div className={`${styles.shareIconsText} d-flex flex-column`}>
-       <p>Twitter</p>
        <a
         href={`https://twitter.com/share?url=${imageUrlForShare}&via=TWITTER_HANDLE&text=TEXT`}
         onClick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
@@ -100,7 +96,6 @@ export default function ActionShareIcons({ imageUrlForShare }) {
        </a>
       </div>
       <div className={`${styles.shareIconsText} d-flex flex-column`}>
-       <p>Instagram</p>
        <Image
         className="cursor-pointer"
         src={"/icons/insta.png"}
@@ -110,7 +105,6 @@ export default function ActionShareIcons({ imageUrlForShare }) {
        ></Image>
       </div>
       <div className={`${styles.shareIconsText} d-flex flex-column `}>
-       <p>Pinterest</p>
        <a
         href={`http://pinterest.com/pin/create/button/?url=${imageUrlForShare}&media=${imageUrlForShare}&description=description`}
         target="_blank"

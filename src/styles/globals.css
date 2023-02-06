@@ -11,6 +11,17 @@ body {
 .cursor-pointer {
   cursor: pointer;
 }
+
+.main-image-container {
+  max-height: 400px;
+  max-width: 500px;
+  margin: auto;
+}
+.main-image-container img { 
+  max-height: 400px;
+  max-width: 500px;
+  margin: auto;
+}
 /* :root {
   --max-width: 1100px;
   --border-radius: 12px;
