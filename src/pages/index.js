@@ -154,18 +154,24 @@ export default function Home() {
                 />
               </div>
             )}
-            <div className="text-center mt-3 pl-4 pr-4 mb-0 d-flex">
-             <p>Describe What you want to see:</p>
-             <a href="#" className="ms-2" title="Good description for your image">
-             <i class="fa-sharp fa-solid fa-info"></i>
-             </a>
+            <div className="text-center mt-3 pl-4 pr-4 mb-0 d-flex justify-content-center">
+              <p>Describe What you want to see:</p>
+              <a
+                href="#"
+                className="ms-2"
+                title="Good description for your image"
+              >
+                <i className="fa-sharp fa-solid fa-info"></i>
+              </a>
             </div>
             <textarea
               className={styles.textarea}
               onChange={(e) => setPrompt(e.target.value)}
               rows="3"
             ></textarea>
-              <p className="text-center mt-2 pl-4 pr-4 mb-0">What you dont want</p>
+            <p className="text-center mt-2 pl-4 pr-4 mb-0">
+              What you dont want
+            </p>
             <input
               className={`${styles.textarea} mb-2`}
               onChange={(e) => setNegative_prompt(e.target.value)}
@@ -195,24 +201,24 @@ export default function Home() {
           <div className="col-sm-12 col-md-6 mt-5 mb-3">
             <div className="row">
               <div className="col-8">
-                {!imageForEnlargeViewMode && imageResponse &&
+                {!imageForEnlargeViewMode &&
+                  imageResponse &&
                   imageResponse.generated_images &&
                   imageResponse.generated_images.length && (
-                  <p className="text-gray">Click on images to enlarge</p>
-                )}
+                    <p className="text-gray">Click on images to enlarge</p>
+                  )}
                 {imageForEnlargeViewMode && (
                   <div className="d-flex">
-                  <Image
-                    onClick={() => setImageForEnlargeViewMode(null)}
-                    src={"/icons/backIcon.png"}
-                    className="cursor-pointer"
-                    alt="like"
-                    width={24}
-                    height={24}
-                  ></Image>
-                  <h5 className={styles.postHeadTitle}>See as Post on:</h5>
+                    <Image
+                      onClick={() => setImageForEnlargeViewMode(null)}
+                      src={"/icons/backIcon.png"}
+                      className="cursor-pointer"
+                      alt="like"
+                      width={24}
+                      height={24}
+                    ></Image>
+                    <h5 className={styles.postHeadTitle}>See as Post on:</h5>
                   </div>
-                  
                 )}
               </div>
               {imageForEnlargeViewMode && (
@@ -224,10 +230,11 @@ export default function Home() {
                       onClick={() => setImageEnlargeViewOption(icon.key)}
                     >
                       <i
-                        className={`fa-brands fa-xl ${icon.name} ${imageEnlargeViewOption === icon.key
-                          ? styles.active
-                          : ""
-                          }`}
+                        className={`fa-brands fa-xl ${icon.name} ${
+                          imageEnlargeViewOption === icon.key
+                            ? styles.active
+                            : ""
+                        }`}
                       ></i>
                     </div>
                   ))}
@@ -236,17 +243,18 @@ export default function Home() {
             </div>
             {!imageForEnlargeViewMode ? (
               <div className="row">
-                {loading && [1, 2, 3, 4].map((i) => (
-                  <div className={`col-6 col-sm-12 col-md-6 mb-3`} key={i}>
-                    <div className={`${styles.imageHolderContainer}`}>
-                      <SkeltonLoaderCard />
+                {loading &&
+                  [1, 2, 3, 4].map((i) => (
+                    <div className={`col-6 col-sm-12 col-md-6 mb-3`} key={i}>
+                      <div className={`${styles.imageHolderContainer}`}>
+                        <SkeltonLoaderCard />
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
                 {imageResponse &&
                   imageResponse.generated_images &&
-                  imageResponse.generated_images.length
-                  && imageResponse.generated_images.map((i) => (
+                  imageResponse.generated_images.length &&
+                  imageResponse.generated_images.map((i) => (
                     <div className={`col-6 col-sm-12 col-md-6 mb-3`} key={i}>
                       <div
                         className={`${styles.imageHolderContainer} cursor-pointer`}
@@ -255,8 +263,7 @@ export default function Home() {
                         <img src={i} alt={i} />
                       </div>
                     </div>
-                  ))
-                }
+                  ))}
               </div>
             ) : (
               <div className="row">
