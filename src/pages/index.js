@@ -154,15 +154,18 @@ export default function Home() {
                 />
               </div>
             )}
-            <p className="text-center mt-3 pl-4 pr-4 mb-0">
-              Tell us How to do you want to re-create your product{"*"}
-            </p>
+            <div className="text-center mt-3 pl-4 pr-4 mb-0 d-flex">
+             <p>Describe What you want to see:</p>
+             <a href="#" className="ms-2" title="Good description for your image">
+             <i class="fa-sharp fa-solid fa-info"></i>
+             </a>
+            </div>
             <textarea
               className={styles.textarea}
               onChange={(e) => setPrompt(e.target.value)}
               rows="3"
             ></textarea>
-            <p className="text-center mt-2 pl-4 pr-4 mb-0">Texts to Exclude</p>
+            <p className="text-center mt-2 pl-4 pr-4 mb-0">What you don't want</p>
             <input
               className={`${styles.textarea} mb-2`}
               onChange={(e) => setNegative_prompt(e.target.value)}
@@ -175,7 +178,7 @@ export default function Home() {
                 My dinning table in a seashore
               </li>
             </ol> */}
-            <div className="mt-2">
+            <div className={`${styles.generateImgBtnWrap}`}>
               <button
                 className={`${styles.generateImgBtn}`}
                 onClick={() => generateImage()}
@@ -184,7 +187,7 @@ export default function Home() {
                 {loading ? (
                   <i className="fa fa-spin fa-spinner"></i>
                 ) : (
-                  "Generate Image"
+                  "Generate"
                 )}
               </button>
             </div>
@@ -198,6 +201,7 @@ export default function Home() {
                   <p className="text-gray">Click on images to enlarge</p>
                 )}
                 {imageForEnlargeViewMode && (
+                  <div className="d-flex">
                   <Image
                     onClick={() => setImageForEnlargeViewMode(null)}
                     src={"/icons/backIcon.png"}
@@ -206,18 +210,21 @@ export default function Home() {
                     width={24}
                     height={24}
                   ></Image>
+                  <h5 className={styles.postHeadTitle}>See as Post on:</h5>
+                  </div>
+                  
                 )}
               </div>
               {imageForEnlargeViewMode && (
                 <div className="col-4 d-flex justify-content-between mb-3">
                   {icons.map((icon) => (
                     <div
-                      className="cursor-pointer"
+                      className="cursor-pointer ms-1"
                       key={icon.key}
                       onClick={() => setImageEnlargeViewOption(icon.key)}
                     >
                       <i
-                        className={`fa-brands fa-2xl ${icon.name} ${imageEnlargeViewOption === icon.key
+                        className={`fa-brands fa-xl ${icon.name} ${imageEnlargeViewOption === icon.key
                           ? styles.active
                           : ""
                           }`}

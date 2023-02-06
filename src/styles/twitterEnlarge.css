@@ -39,9 +39,13 @@
 .twitterUserName {
   display: flex;
 }
+.twitterUserName h4{
+  font-size: 18px;
+}
 
 .twitterUserName p {
   margin-left: 5px;
+  font-size: 13px;
 }
 
 .twitterHashtag {

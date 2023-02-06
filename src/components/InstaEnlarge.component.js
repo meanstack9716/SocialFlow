@@ -10,9 +10,9 @@ export default function InstaEnlarge({ image }) {
           />
         </div>
         <div className="userDetails">
-          <h4 className="userName">sygfehgefhf</h4>
+          <h4 className="userName">RisingBrand</h4>
           <i className="fa-solid fa-circle-small timeIcon"></i>
-          <h4 className="postTime"> 4d</h4>
+          <h4 className="postTime">1h</h4>
         </div>
         <span className="showMore">
           <i className="fa fa-ellipsis"></i>
@@ -30,9 +30,9 @@ export default function InstaEnlarge({ image }) {
       <div className="postDetails">
         <p className="m-0">63 likes</p>
         <h4>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industrys standard dummy text e
+          This is our brand first post in a while. Help us achieve great heights by being our community. like and share
         </h4>
+        <h4 className="text-info">#viral#trending</h4>
         <h6>see translation</h6>
       </div>
       <div className="postComments">

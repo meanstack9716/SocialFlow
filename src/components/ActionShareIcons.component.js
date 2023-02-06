@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { firestore } from "@/config/firebase";
 import { collection, doc, setDoc } from "firebase/firestore";
+import styles from "@/styles/Home.module.css";
 
 export default function ActionShareIcons({ imageUrlForShare }) {
   const likeDislikeCollection = collection(firestore,'likeDislike');
@@ -27,82 +28,103 @@ export default function ActionShareIcons({ imageUrlForShare }) {
    }
   };
   return (
-    <div className={`col-12 mt-2 d-flex justify-content-around`}>
-      <Image
+    <div className={`${styles.shareIconsWrap} col-12 mt-2 d-flex justify-content-around `}>
+      <div className={`${styles.shareIconsText} d-flex flex-column`}>
+       <p>like</p>
+       <Image
         className="cursor-pointer"
         src={"/icons/like.png"}
         alt="like"
-        width={34}
-        height={34}
+        width={25}
+        height={25}
         onClick={() => likeDislike(true)}
-      ></Image>
-      <Image
+       ></Image>
+      </div>
+      <div className={`${styles.shareIconsText} d-flex flex-column`}>
+       <p>Dislike</p>
+       <Image
         className="cursor-pointer"
         src={"/icons/dislike.png"}
         alt="dislike"
-        width={34}
-        height={34}
+        width={25}
+        height={25}
         onClick={() => likeDislike(false)}
-      ></Image>
-      <a download={imageUrlForShare} href={imageUrlForShare} title="ImageName">
-        <Image
-          className="cursor-pointer"
-          src={"/icons/download.png"}
-          alt="download"
-          width={34}
-          height={34}
-        ></Image>
-      </a>
-      <a
+       ></Image>
+      </div>
+      <div className={`${styles.shareIconsText} d-flex flex-column`}>
+        <p>Download</p>
+        <a download={imageUrlForShare} href={imageUrlForShare} title="ImageName">
+          <Image
+           className="cursor-pointer"
+           src={"/icons/download.png"}
+           alt="download"
+           width={25}
+           height={25}
+          ></Image>
+        </a>
+      </div>
+      <div className={`${styles.shareIconsText} d-flex flex-column`}>
+       <p>Facebook</p>
+       <a
         href={`https://www.facebook.com/sharer/sharer.php?u=${imageUrlForShare}&t=TITLE`}
         onClick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
         target="_blank"
         title="Share on Facebook"
         rel="noopener noreferrer"
-      >
+       >
         <Image
           className="cursor-pointer"
           src={"/icons/fb.png"}
           alt="fb"
-          width={34}
-          height={34}
+          width={25}
+          height={25}
         ></Image>
-      </a>
-      <a
+       </a>
+      </div>
+      <div className={`${styles.shareIconsText} d-flex flex-column`}>
+       <p>Twitter</p>
+       <a
         href={`https://twitter.com/share?url=${imageUrlForShare}&via=TWITTER_HANDLE&text=TEXT`}
         onClick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
         target="_blank"
         title="Share on Twitter"
         rel="noopener noreferrer"
-      >
+       >
         <Image
           className="cursor-pointer"
           src={"/icons/twitter.png"}
           alt="twitter"
-          width={34}
-          height={34}
+          width={25}
+          height={25}
         ></Image>
-      </a>
-      <Image
+       </a>
+      </div>
+      <div className={`${styles.shareIconsText} d-flex flex-column`}>
+       <p>Instagram</p>
+       <Image
         className="cursor-pointer"
         src={"/icons/insta.png"}
         alt="insta"
-        width={34}
-        height={34}
-      ></Image>
-      <a
+        width={25}
+        height={25}
+       ></Image>
+      </div>
+      <div className={`${styles.shareIconsText} d-flex flex-column `}>
+       <p>Pinterest</p>
+       <a
         href={`http://pinterest.com/pin/create/button/?url=${imageUrlForShare}&media=${imageUrlForShare}&description=description`}
         target="_blank"
         rel="noopener noreferrer"
-      >
+       >
         <Image
           className="cursor-pointer"
           src={"/icons/pintrest.png"}
           alt="pintrest"
-          width={34}
-          height={34}
+          width={25}
+          height={25}
         ></Image>
-      </a>
+       </a>
+      </div>
     </div>
   );
 }

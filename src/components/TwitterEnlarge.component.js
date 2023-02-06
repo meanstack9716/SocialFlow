@@ -11,18 +11,17 @@ export default function TwitterEnlarge({ image }) {
       <div className="twitterPostHeadWrap">
         <div className="twitterUserDetails">
           <div className="twitterUserName">
-            <h4>abcdef</h4>
-            <p>@abcdef</p>
-            <p>4d</p>
+            <h4>Mygreatbrand</h4>
+            <p>@greatBrand</p>
+            <p>52s</p>
           </div>
           <div className="twitterPostdesc">
             <h5>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum
+            This is our brand first post in a while. Help us achieve great heights by being our community. like and share 
             </h5>
           </div>
           <div className="twitterHashtag">
-            <h5>#hashtag</h5>
+            <h5>#Viral#trending</h5>
           </div>
         </div>
         <span className="twitterShowMore">

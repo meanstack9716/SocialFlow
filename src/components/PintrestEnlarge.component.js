@@ -6,7 +6,7 @@ export default function PintrestEnlarge({ image }) {
           <img className="card-img-top" src={image} alt="Card image cap" />
           <div className="card-block py-2">
             <span className="card-title ps-3">
-              From <b>User Name</b>
+              From <b>leading brand</b>
             </span>
             <p className="card-text ps-3">Vestibulum enim quam</p>
           </div>
