@@ -165,7 +165,7 @@ export default function Home() {
               onChange={(e) => setPrompt(e.target.value)}
               rows="3"
             ></textarea>
-            <p className="text-center mt-2 pl-4 pr-4 mb-0">What you don't want</p>
+              <p className="text-center mt-2 pl-4 pr-4 mb-0">What you dont want</p>
             <input
               className={`${styles.textarea} mb-2`}
               onChange={(e) => setNegative_prompt(e.target.value)}
