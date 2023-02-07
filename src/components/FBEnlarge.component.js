@@ -26,7 +26,7 @@ export default function FBEnlarge({ image, socialContent }) {
               <img src={image} className="img-responsive" />
               <div className="sponsord-post-title-links">
                 <small>medium.com/@karthikricssion</small>
-                <h5>How to design a printable HTML page layout</h5>
+                <h5>{socialContent && socialContent.length && socialContent[1] && socialContent[1].social[0].Content}</h5>
               </div>
             </div>
           </div>

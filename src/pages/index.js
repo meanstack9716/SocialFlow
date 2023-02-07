@@ -155,6 +155,7 @@ export default function Home() {
                     setPrompt("");
                     setNegative_prompt("");
                     setSocialContent(null);
+                    setImageForEnlargeViewMode(null);
                   }}
                 >
                   <i className="fa-solid fa-2xl fa-circle-xmark"></i>

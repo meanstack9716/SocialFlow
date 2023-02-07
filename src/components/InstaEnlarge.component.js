@@ -1,4 +1,4 @@
-export default function InstaEnlarge({ image }) {
+export default function InstaEnlarge({ image, socialContent }) {
   return (
     <div className="postWrap">
       <div className="postHeadWrap">
@@ -30,9 +30,9 @@ export default function InstaEnlarge({ image }) {
       <div className="postDetails">
         <p className="m-0">63 likes</p>
         <h4>
-          This is our brand first post in a while. Help us achieve great heights by being our community. like and share
+          {socialContent && socialContent.length && socialContent[0].social[0].Content}
         </h4>
-        <h4 className="text-info">#viral#trending</h4>
+        {/* <h4 className="text-info">#viral#trending</h4> */}
         <h6>see translation</h6>
       </div>
       <div className="postComments">

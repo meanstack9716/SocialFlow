@@ -1,4 +1,4 @@
-export default function PintrestEnlarge({ image }) {
+export default function PintrestEnlarge({ image, socialContent }) {
   return (
     <div className="container">
       <div className="card-columns">
@@ -8,13 +8,10 @@ export default function PintrestEnlarge({ image }) {
             <span className="card-title ps-3">
               From <b>leading brand</b>
             </span>
-            <p className="card-text ps-3">Vestibulum enim quam</p>
+            <p className="card-text ps-3">Marquee</p>
           </div>
           <div className="card-footer">
-            <small>
-              Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting
-              Industry. Lorem Ipsum Has Been The Industrys Standard Dummy Text E
-            </small>
+            <small>{socialContent && socialContent.length && socialContent[2] && socialContent[2].social[0].Content}</small>
           </div>
         </div>
       </div>

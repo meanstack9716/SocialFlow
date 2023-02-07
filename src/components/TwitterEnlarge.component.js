@@ -1,4 +1,4 @@
-export default function TwitterEnlarge({ image }) {
+export default function TwitterEnlarge({ image, socialContent }) {
   return (
     <div className="twitterPostWrap">
       <div className="twitterHeadImgWrap">
@@ -17,12 +17,12 @@ export default function TwitterEnlarge({ image }) {
           </div>
           <div className="twitterPostdesc">
             <h5>
-            This is our brand first post in a while. Help us achieve great heights by being our community. like and share 
+            {socialContent && socialContent.length && socialContent[3] && socialContent[3].social[0].Content}
             </h5>
           </div>
-          <div className="twitterHashtag">
+          {/* <div className="twitterHashtag">
             <h5>#Viral#trending</h5>
-          </div>
+          </div> */}
         </div>
         <span className="twitterShowMore">
           <i className="fa-solid fa-ellipsis"></i>
