@@ -1,4 +1,4 @@
-export default function FBEnlarge({ image }) {
+export default function FBEnlarge({ image, socialContent }) {
   return (
     <div className="fb-cards-designs">
       <div className="fb-clone-card">

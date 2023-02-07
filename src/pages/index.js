@@ -40,6 +40,7 @@ export default function Home() {
   const [negative_prompt, setNegative_prompt] = useState("");
   const [loading, setLoading] = useState(false);
   const [imageResponse, setImageResponse] = useState(null);
+  const [socialContent, setSocialContent] = useState(null);
 
   const dragOverHandler = (e) => {
     e.preventDefault();
@@ -69,10 +70,36 @@ export default function Home() {
     }
   };
 
+  const getSocialMediaContent = async () => {
+    const socialPlatform = ['Instagram', 'Facebook', 'Pinterest', 'Twitter'] //TikTok
+    const requests = socialPlatform.map((platform) => axios.post(`https://content-generator-api-hvrhzwzgoa-uc.a.run.app/content/generate`, {
+        "type": "social",
+        "social_platform": platform,
+        "variations": 1,
+        "text" : prompt
+    }, {
+      headers: {
+        "x-api-key": "70e1571f30ad402e94c3ff8c4d49ff07"
+      }
+    }));
+    try {
+      const responses = await axios.all(requests)
+      const data = []
+      responses.forEach((resp) => {
+        data.push(resp.data)
+      });
+      console.log('data', data);
+      setSocialContent(data);
+    } catch(err) {
+      console.log(err);
+    }
+  };
+
   const generateImage = async () => {
     const data = new FormData();
     if (image && image.name && prompt) {
       setLoading(true);
+      await getSocialMediaContent();
       data.append("image", image, image.name);
       data.append("negative_prompt", negative_prompt);
       data.append("prompt", prompt);
@@ -107,7 +134,7 @@ export default function Home() {
           <div className="col-12">
             <div className={styles.subHeaderContainer}>
               <p className={styles.subHeaderTitle}>
-                Re-create your product images in seconds using #socialflow.ai
+                Re-create your product images in seconds using #breeze.ai
               </p>
             </div>
           </div>
@@ -127,6 +154,7 @@ export default function Home() {
                     setImageResponse(null);
                     setPrompt("");
                     setNegative_prompt("");
+                    setSocialContent(null);
                   }}
                 >
                   <i className="fa-solid fa-2xl fa-circle-xmark"></i>
@@ -276,19 +304,19 @@ export default function Home() {
                 <div className={`col-12 mb-3`}>
                   {imageForEnlargeViewMode &&
                     imageEnlargeViewOption === "facebook" && (
-                      <FBEnlarge image={imageForEnlargeViewMode} />
+                      <FBEnlarge image={imageForEnlargeViewMode} socialContent={socialContent} />
                     )}
                   {imageForEnlargeViewMode &&
                     imageEnlargeViewOption === "instagram" && (
-                      <InstaEnlarge image={imageForEnlargeViewMode} />
+                      <InstaEnlarge image={imageForEnlargeViewMode} socialContent={socialContent} />
                     )}
                   {imageForEnlargeViewMode &&
                     imageEnlargeViewOption === "pinterest" && (
-                      <PintrestEnlarge image={imageForEnlargeViewMode} />
+                      <PintrestEnlarge image={imageForEnlargeViewMode} socialContent={socialContent} />
                     )}
                   {imageForEnlargeViewMode &&
                     imageEnlargeViewOption === "twitter" && (
-                      <TwitterEnlarge image={imageForEnlargeViewMode} />
+                      <TwitterEnlarge image={imageForEnlargeViewMode} socialContent={socialContent} />
                     )}
                 </div>
               </div>
